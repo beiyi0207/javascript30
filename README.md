@@ -1,5 +1,6 @@
 # javascript30
 My JavaScript30 Projects
-https://javascript30.com
+
+(Course URL: https://javascript30.com)
 
 Day 1: JavaScript Piano
