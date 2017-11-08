@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="stylesheet" href="./piano.css">
+
+    <title>Day 1: JavaScript Piano</title>
+
+    <script type="text/javascript" src="./piano.js" defer></script>
+  </head>
+  <body>
+    <div class="piano">
+      <div data-key="65" class="piano__key piano__key--white">
+        <kbd class="piano__label">A</kbd>
+      </div>
+      <div data-key="87" class="piano__key piano__key--black">
+        <kbd class="piano__label piano__label--black">W</kbd>
+      </div>
+      <div data-key="83" class="piano__key piano__key--white">
+        <kbd class="piano__label">S</kbd>
+      </div>
+      <div data-key="69" class="piano__key piano__key--black">
+        <kbd class="piano__label piano__label--black">E</kbd>
+      </div>
+      <div data-key="68" class="piano__key piano__key--white">
+        <kbd class="piano__label">D</kbd>
+      </div>
+      <div data-key="70" class="piano__key piano__key--white">
+        <kbd class="piano__label">F</kbd>
+      </div>
+      <div data-key="84" class="piano__key piano__key--black">
+        <kbd class="piano__label piano__label--black">T</kbd>
+      </div>
+      <div data-key="71" class="piano__key piano__key--white">
+        <kbd class="piano__label">G</kbd>
+      </div>
+      <div data-key="89" class="piano__key piano__key--black">
+        <kbd class="piano__label piano__label--black">Y</kbd>
+      </div>
+      <div data-key="72" class="piano__key piano__key--white">
+        <kbd class="piano__label">H</kbd>
+      </div>
+      <div data-key="85" class="piano__key piano__key--black">
+        <kbd class="piano__label piano__label--black">U</kbd>
+      </div>
+      <div data-key="74" class="piano__key piano__key--white">
+        <kbd class="piano__label">J</kbd>
+      </div>
+      <div data-key="75" class="piano__key piano__key--white">
+        <kbd class="piano__label">K</kbd>
+      </div>
+    </div>
+
+    <audio data-key="65" src="sounds/c1.wav"></audio>
+    <audio data-key="83" src="sounds/d1.wav"></audio>
+    <audio data-key="68" src="sounds/e1.wav"></audio>
+    <audio data-key="70" src="sounds/f1.wav"></audio>
+    <audio data-key="71" src="sounds/g1.wav"></audio>
+    <audio data-key="72" src="sounds/a1.wav"></audio>
+    <audio data-key="74" src="sounds/b1.wav"></audio>
+    <audio data-key="75" src="sounds/c2.wav"></audio>
+    <audio data-key="87" src="sounds/c1s.wav"></audio>
+    <audio data-key="69" src="sounds/d1s.wav"></audio>
+    <audio data-key="84" src="sounds/f1s.wav"></audio>
+    <audio data-key="89" src="sounds/g1s.wav"></audio>
+    <audio data-key="85" src="sounds/a1s.wav"></audio>
+  </body>
+</html>
