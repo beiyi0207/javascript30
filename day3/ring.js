@@ -3,7 +3,6 @@ function handleUpdate() {
   const suffix = this.dataset.unit || '';
   const variable = this.dataset.variable;
   document.documentElement.style.setProperty(`--${variable}`, this.value + suffix);
-
 }
 function resetInput() {
   document.getElementById('gem').value = '#ff0000';
