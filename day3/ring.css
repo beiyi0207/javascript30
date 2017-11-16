@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'FFFFoward';
+  src: url('fonts/FFFFORWA.TTF');
+}
+
+:root {
+  --gem-color: #ff0000;
+  --cell-size: 9px;
+  --ring-color: #ffc107;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'FFFFoward';
+  margin: 0;
+  padding: 50px;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 1.5em;
+  text-align: center;
+  color: var(--gem-color);
+  margin: 25px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(10, var(--cell-size));
+  grid-template-columns: repeat(10, var(--cell-size));
+  width: calc(var(--cell-size) * 10);
+  margin: 100px auto;
+}
+
+.cell {
+  background: white;
+}
+
+.outline {
+  background: black;
+}
+
+.gem {
+  background: var(--gem-color);
+}
+
+.gem--highlight {
+  opacity: 0.3;
+}
+
+.ring {
+  background: var(--ring-color);
+}
+
+form {
+  width: 320px;
+  margin: 0 auto;
+}
+
+fieldset {
+  border: none;
+  padding: 1.5ex 25px;
+}
