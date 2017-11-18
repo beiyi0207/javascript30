@@ -76,7 +76,7 @@ const sortedAsc = hasTransaction.sort((a, b) => a.volume < b.volume ? -1 : 1);</
         <td class="value"><span id="evendays" class="value"></span></td>
       </tr>
     </table>
-<pre><code>const netChanges = data.map(entry => entry.close - entry.open);
+<pre><code>const netChanges = hasTransaction.map(entry => entry.close - entry.open);
 const netChangeObj = netChanges.reduce(function(obj, entry) {
   obj['up'] = obj['up'] ? obj['up'] : 0;
   obj['even'] = obj['even'] ? obj['even'] : 0;
