@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="stylesheet" href="./nintendo.css">
+    <script type="text/javascript" src="./nintendo.json"></script>
+    <script type="text/javascript" src="./nintendo.js"></script>
+
+    <title>Day 4: Nintendo Array Cardio</title>
+  </head>
+  <body>
+    <h1>NTDOY Array Cardio</h1>
+
+    <p>We are going to do some array exercises with NTDOY's historical stock prices  (2007 - 2017). The origin data is obtained from (<a href="http://www.nasdaq.com/symbol/ntdoy/historical">Nasdaq</a>).</p>
+
+    <h2>Highs and Lows</h2>
+    <h3>Highest Stock Price - <span class="value">$<span id="highest-price"></span></span></h3>
+
+<pre><code>const highPrices = data.map(entry => entry.high);
+const highestPrice = highPrices.reduce((a, b) => {
+  return Math.max(a, b);
+});
+const highestPriceKey = Object.keys(data).find(key => data[key].high === highestPrice);
+const highestPriceDate = data[highestPriceKey].date;</code></pre>
+
+    <h3>Lowest Stock Price - <span class="value">$<span id="lowest-price"></span></span></h3>
+<pre><code>const lowPrices = data.map(entry => entry.low);
+const lowestPrice = lowPrices.reduce((a, b) => {
+  return Math.min(a, b);
+});
+const lowestPriceKey = Object.keys(data).find(key => data[key].low === lowestPrice);
+const lowestPriceDate = data[lowestPriceKey].date;</code></pre>
+
+    <h2>Trading Volumes</h2>
+    <h3>Top 5 Volumes</h3>
+    <ol>
+      <li><span class="value" id="volume-top-1"></span></li>
+      <li><span class="value" id="volume-top-2"></span></li>
+      <li><span class="value" id="volume-top-3"></span></li>
+      <li><span class="value" id="volume-top-4"></span></li>
+      <li><span class="value" id="volume-top-5"></span></li>
+    </ol>
+<pre><code>const sortedDesc = data.sort((a, b) => a.volume > b.volume ? -1 : 1);</code></pre>
+
+    <h3>Bottom 5 Volumes (excluding 0) <span class="value" id="lowest-volume"></span></h3>
+    <ol>
+      <li><span class="value" id="volume-bottom-1"></span></li>
+      <li><span class="value" id="volume-bottom-2"></span></li>
+      <li><span class="value" id="volume-bottom-3"></span></li>
+      <li><span class="value" id="volume-bottom-4"></span></li>
+      <li><span class="value" id="volume-bottom-5"></span></li>
+    </ol>
+<pre><code>const hasTransaction = data.filter(entry => entry.volume > 0);
+const sortedAsc = hasTransaction.sort((a, b) => a.volume < b.volume ? -1 : 1);</code></pre>
+
+    <h2>Net Changes</h2>
+    <h3>Ups and Downs</h3>
+    <table>
+      <tr>
+        <th scope="row">Total Trading Days</th>
+        <td class="value"><span id="totaldays" class="value"></span></td>
+      </tr>
+      <tr>
+        <th scope="row">Up Days</th>
+        <td class="value"><span id="updays" class="value"></span></td>
+      </tr>
+      <tr>
+        <th scope="row">Down Days</th>
+        <td class="value"><span id="downdays" class="value"></span></td>
+      </tr>
+      <tr>
+        <th scope="row">Even Days</th>
+        <td class="value"><span id="evendays" class="value"></span></td>
+      </tr>
+    </table>
+<pre><code>const netChanges = data.map(entry => entry.close - entry.open);
+const netChangeObj = netChanges.reduce(function(obj, entry) {
+  obj['up'] = obj['up'] ? obj['up'] : 0;
+  obj['even'] = obj['even'] ? obj['even'] : 0;
+  obj['down'] = obj['down'] ? obj['down'] : 0;
+
+  if (entry > 0) {
+    obj['up']++;
+  } else if (entry === 0) {
+    obj['even']++;
+  } else {
+    obj['down']++;
+  }
+  return obj;
+}, {});</code></pre>
+
+    <h3>Daily Ranges</h3>
+    <ol>
+      <li><span class="value" id="range-top-1"></span></li>
+      <li><span class="value" id="range-top-2"></span></li>
+      <li><span class="value" id="range-top-3"></span></li>
+      <li><span class="value" id="range-top-4"></span></li>
+      <li><span class="value" id="range-top-5"></span></li>
+    </ol>
+<pre><code>const dailyRangesDesc = data.sort((a, b) => {
+  prevRange = a.high - a.low;
+  nextRange = b.high - b.low;
+  return prevRange > nextRange ? -1 : 1;
+})</code></pre>
+  </body>
+</html>
