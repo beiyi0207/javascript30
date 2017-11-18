@@ -51,7 +51,7 @@ loadJSON(function(response) {
                     });
 
   // Ups and Downs
-  const netChanges = data.map(entry => entry.close - entry.open);
+  const netChanges = hasTransaction.map(entry => entry.close - entry.open);
   const netChangeObj = netChanges.reduce(function(obj, entry) {
     obj['up'] = obj['up'] ? obj['up'] : 0;
     obj['even'] = obj['even'] ? obj['even'] : 0;
